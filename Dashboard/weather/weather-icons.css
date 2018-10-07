@@ -1,0 +1,161 @@
+/*!
+ * Modified version (slimmed down/renamed) of Weather Icons 1.2
+ * Original version at http://erikflowers.github.io/weather-icons
+ * Weather Icons Bootstrap Package Author - Erik Flowers - erik@helloerik.com
+ * License
+ *  ------------------------------------------------------------------------------
+ *  - Fpmt licensed under SIL OFL 1.1 -
+ *    http://scripts.sil.org/OFL
+ *  - CSS and LESS are licensed under MIT License -
+ *    http://opensource.org/licenses/mit-license.html
+ *  - Documentation licensed under CC BY 3.0 -
+ *    http://creativecommons.org/licenses/by/3.0/
+ *  - Inspired by and works great as a companion with Font Awesome
+ *    "Font Awesome by Dave Gandy - http://fontawesome.io"
+ *  ------------------------------------------------------------------------------
+ */
+
+@font-face {
+  font-family: 'weathericons';
+  src: url('weathericons-regular-webfont.eot');
+  src: url('weathericons-regular-webfont.eot?#iefix') format('embedded-opentype'), url('weathericons-regular-webfont.woff') format('woff'), url('weathericons-regular-webfont.ttf') format('truetype'), url('weathericons-regular-webfont.svg#weathericons-regular-webfontRg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+.wi {
+  display: inline-block;
+  font-family: 'weathericons';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  color: black;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.hail:before {
+  content: "\f004";
+}
+.chancetstorms:before {
+  content: "\f005";
+}
+.tstorms:before {
+  content: "\f005";
+}
+.rain:before {
+  content: "\f008";
+}
+.showers:before {
+  content: "\f009";
+}
+.chancerain:before {
+  content: "\f009";
+}
+.chancesnow:before {
+  content: "\f00a";
+}
+.snow:before {
+  content: "\f00a";
+}
+.partlycloudy:before {
+  content: "\f00c";
+}
+.mostlysunny:before {
+  content: "\f00c";
+}
+.mostlycloudy:before {
+  content: "\f002";
+}
+.partlysunny:before {
+  content: "\f002";
+}
+.sunny:before {
+  content: "\f00d";
+}
+.clear:before {
+  content: "\f00d";
+}
+.cloudy:before {
+  content: "\f013";
+}
+.fog:before {
+  content: "\f014";
+}
+.windy:before {
+  content: "\f021";
+}
+.nt_clear:before {
+  content: "\f02e";
+}
+.nt_cloudy:before {
+  content: "\f031";
+}
+.nt_hail:before {
+  content: "\f032";
+}
+.nt_rain:before {
+  content: "\f036";
+}
+.nt_showers:before {
+  content: "\f037";
+}
+.nt_snow:before {
+  content: "\f038";
+}
+.nt_tstorms:before {
+  content: "\f03b";
+}
+.nt_fog:before {
+  content: "\f04a";
+}
+.nt_partlycloudy:before {
+  content: "\f083";
+}
+.wind:before {
+  content: "\f050";
+}
+
+/***********************************************************************/
+/************************** NON-WEATHER ICONS **************************/
+/***********************************************************************/
+.down:before {
+  content: "\f044";
+}
+.up:before {
+  content: "\f058";
+}
+.humidity:before {
+  content: "\f04e";
+}
+.basicrain:before {
+  content: "\f01a";
+}
+
+
+/*********************************************************************/
+/************************** WIND DIRECTIONS **************************/
+/*********************************************************************/
+.West:before {
+  content: "\f059";
+}
+.SW:before, .SSW:before, .WSW:before {
+  content: "\f05a";
+}
+.SE:before, .ESE:before, .SSE:before {
+  content: "\f05b";
+}
+.South:before {
+  content: "\f05c";
+}
+.NW:before, .NNW:before, .WNW:before {
+  content: "\f05d";
+}
+.NE:before, .ENE:before, .NNE:before {
+  content: "\f05e";
+}
+.North:before {
+  content: "\f060";
+}
+.East:before {
+  content: "\f061";
+}

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+	<meta name="viewport" content="user-scalable=no, width=1020, maximum-scale=1" />
+	<meta http-equiv="refresh" content="300" />
+	<link rel="stylesheet" href="weather-icons.css">
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:800|Ubuntu:700,500" rel="stylesheet" type="text/css">
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="../FA/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../css/home.css">
+       	<link rel="stylesheet" href="weather.css" >
+	<script src="../js/jquery.min.js"></script>
+		<title>Weather</title>
+	</head>
+<body>
+<script>
+function updateClock ( )
+ 	{
+ 	var currentTime = new Date ( );
+  	var currentHours = currentTime.getHours ( );
+  	var currentMinutes = currentTime.getMinutes ( );
+  	var currentSeconds = currentTime.getSeconds ( );
+  	// Pad the minutes and seconds with leading zeros, if required
+  	currentMinutes = ( currentMinutes < 10 ? "0" : "" ) + currentMinutes;
+  	currentSeconds = ( currentSeconds < 10 ? "0" : "" ) + currentSeconds;
+  	// Choose either "AM" or "PM" as appropriate
+  	var timeOfDay = ( currentHours < 12 ) ? "AM" : "PM";
+  	// Convert the hours component to 12-hour format if needed
+  	currentHours = ( currentHours > 12 ) ? currentHours - 12 : currentHours;
+  	// Convert an hours component of "0" to "12"
+  	currentHours = ( currentHours == 0 ) ? 12 : currentHours;
+  	// Compose the string for display
+  	var currentTimeString = currentHours + ":" + currentMinutes + ":" + currentSeconds + " " + timeOfDay;
+   	$("#clocktime").html(currentTimeString);
+}
+
+jQuery(document).ready(function() {
+setInterval('updateClock()', 1000);
+var daylist = new Array();
+daylist[0] = "Sunday";
+daylist[1] = "Monday";
+daylist[2] = "Tuesday";
+daylist[3] = "Wednesday";
+daylist[4] = "Thursday";
+daylist[5] = "Friday";
+daylist[6] = "Saturday";
+
+var monthlist = new Array();
+monthlist[0] = "January";
+monthlist[1] = "February";
+monthlist[2] = "March";
+monthlist[3] = "April";
+monthlist[4] = "May";
+monthlist[5] = "June";
+monthlist[6] = "July";
+monthlist[7] = "August";
+monthlist[8] = "September";
+monthlist[9] = "October";
+monthlist[10] = "November";
+monthlist[11] = "December";
+
+	$.ajax({
+		url : "http://api.wunderground.com/api/APIKEYHERE/geolookup/conditions/forecast/q/ZIP5.json",
+		dataType : "jsonp",
+		success : function(parsed_json) {
+			var location = parsed_json['location']['city'];
+			var temp = Math.round(parsed_json['current_observation']['temp_f']);
+			var feels = Math.round(parsed_json['current_observation']['feelslike_f']);
+			var icon = parsed_json['current_observation']['icon'];
+			var daymph = parsed_json['current_observation']['wind_mph'];
+			var daymphgust = parsed_json['current_observation']['wind_gust_mph'];
+			var winddir = parsed_json['current_observation']['wind_dir'];
+			var forecast = parsed_json['forecast']['simpleforecast']['forecastday'];
+			var dayhigh = forecast[0]['high']['fahrenheit'];
+			var daylow = forecast[0]['low']['fahrenheit'];
+			var daychance = forecast[0]['pop'];
+			var fc0 = forecast[1]['date']['weekday'];
+			var fc0h = forecast[1]['high']['fahrenheit'];
+			var fc0l = forecast[1]['low']['fahrenheit'];
+			var fc0i = forecast[1]['icon'];
+			var fc0c = forecast[1]['pop'];
+			var fc1 = forecast[2]['date']['weekday'];
+			var fc1h = forecast[2]['high']['fahrenheit'];
+			var fc1l = forecast[2]['low']['fahrenheit'];
+			var fc1i = forecast[2]['icon'];
+			var fc1c = forecast[2]['pop'];
+			var fc2 = forecast[3]['date']['weekday'];
+			var fc2h = forecast[3]['high']['fahrenheit'];
+			var fc2l = forecast[3]['low']['fahrenheit'];
+			var fc2i = forecast[3]['icon'];
+			var fc2c = forecast[3]['pop'];
+			var dt = new Date();
+			var month = monthlist[dt.getMonth()];
+			var date = dt.getDate();
+			var day = daylist[dt.getDay()];
+			var hours = dt.getHours();
+			
+			if (hours > 18 || hours < 7) {
+				var night = true;
+			} else {
+				var night = false;
+			}
+			
+			if (icon.toString() == 'rain' || icon.toString() == 'showers' || icon.toString() == 'chancerain') {
+				document.getElementById("gradient_body").className = ["gradient_body_rain"];
+			} else if (icon.toString() == 'sunny' || icon.toString() == 'mostlysunny' || icon.toString() == 'partlycloudy' || icon.toString() == 'clear' || icon.toString() == 'mostlycloudy' || icon.toString() == 'partlysunny') {
+				document.getElementById("gradient_body").className = ["gradient_body_sun"];
+			} else if (icon.toString() == 'snow' || icon.toString() == 'chancesnow' || icon.toString() == 'cloudy' || icon.toString() == 'fog') {
+				document.getElementById("gradient_body").className = ["gradient_body_cloud"];
+			} else {
+				document.getElementById("gradient_body").className = ["gradient_body_other"];
+			}
+			
+			if (night == true) {
+				document.getElementById("gradient_body").className = ["gradient_body_night"];
+				document.getElementById("pg_icon").className = ["wi " + "nt_" + icon.toString()];
+			} else {
+				document.getElementById("pg_icon").className = ["wi " + icon.toString()];
+			}
+			// 10pm-5am night mode
+			
+			$("#pg_dayhigh").text(dayhigh.toString());
+			$("#pg_daylow").text(daylow.toString());
+			$("#pg_daychance").text(daychance.toString());
+			$("#pg_month").text(month.toString());
+			$("#pg_date").text(date.toString());
+			$("#pg_day").text(day.toString());
+			$("#pg_daymph").text(daymph.toString());
+			$("#pg_temp").text(temp.toString());
+			$("#pg_feels").text(feels.toString());
+			$("#pg_forecast0").text(fc0.toString());
+			$("#pg_forecast1").text(fc1.toString());
+			$("#pg_forecast2").text(fc2.toString());
+			$("#pg_fc0h").text(fc0h.toString());
+			$("#pg_fc1h").text(fc1h.toString());
+			$("#pg_fc2h").text(fc2h.toString());
+			$("#pg_fc0l").text(fc0l.toString());
+			$("#pg_fc1l").text(fc1l.toString());
+			$("#pg_fc2l").text(fc2l.toString());
+			$("#pg_fc0c").text(fc0c.toString());
+			$("#pg_fc1c").text(fc1c.toString());
+			$("#pg_fc2c").text(fc2c.toString());	
+			document.getElementById("pg_fc0i").className = ["wi " + fc0i.toString()];	
+			document.getElementById("pg_fc1i").className = ["wi " + fc1i.toString()];	
+			document.getElementById("pg_fc2i").className = ["wi " + fc2i.toString()];
+			document.getElementById("pg_winddir").className = ["wi " + winddir.toString()];			
+			} 
+		});
+	
+	$("#shadectl_up").click(function() {
+		$("#shadectl_innerup").fadeTo("slow",0.3).fadeTo("fast",1);
+		$.ajax({
+			url: 'http://window2/c1u',
+		});
+	});
+	
+	$("#shadectl_down").click(function() {
+		$("#shadectl_down").fadeTo("slow",0.3).fadeTo("fast",1);
+		$.ajax({
+			url: 'http://window1/c1d',
+		});
+	});
+ }); 
+ 
+</script>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+		<ul class="nav navbar-nav">
+			<li><a class="nava" href="../index.html"><i class="navicon fa fa-home"></i></a></li>
+			<li class="active"><a class="nava" href="weather/index.html"><i class="navicon fa fa-sun-o"></i></a></li>
+			<li><a class="nava" href="../homesun.html"><i class="navicon fa fa-columns"></i></a></li>
+			<li><a class="nava" href="../lights.html"><i class="navicon fa fa-lightbulb-o"></i></a></li>
+			<li><a class="nava" href="http://url:8080/index.html"><i class="navicon fa fa-music"></i></a></li>
+		</ul>
+	</div>
+</div>
+
+<div id="gradient_body" class="gradient_body_other"> 
+	<div id="weather_frame">
+		<div id="row1">
+			<table id="tablewrap">
+				<tr>
+					<td><p id="pg_day" /></td>
+					<td><p id="clocktime" /></td>
+				</tr>
+				<tr>
+					<td><p id="pg_month" /><p id="pg_date" /></td>
+				</tr>
+			</table>
+		</div>
+		<div id="row2">
+			<i id="pg_icon" class="unknown"></i>
+			<p id="pg_temp"></p><p class="feelsspace"></p>
+			<p class="feelstext">Feels </p><p id="pg_feels"></p><br />
+			<i id="updownicon" class="wi up" /></i><p id="pg_dayhigh"></p><p class="dayspacer"> </p><i id="updownicon" class="wi down" /></i><p id="pg_daylow"></p><br /><br />
+			<i id="rainicon" class="wi basicrain" /></i><p id="pg_daychance"></p><sup><p class="bigpercent">%</p></sup><p class="dayspacer"> </p><p class="dayspacer"> </p>
+			<i id="rainicon" class="wi wind" /></i><p id="pg_daymph"></p><p id="mphtext">mph </p><i id="pg_winddir" class="unknown" /></i>
+		</div>
+		<div id="row3">
+			<table id="row3table">
+			<tr>
+				<th><p id="pg_forecast0" /></th>
+				<td></td>
+				<td class="forecastfixed"></td>
+				<th><p id="pg_forecast1" /></th>
+				<td></td>
+				<td class="forecastfixed"></td>
+				<th><p id="pg_forecast2" /></th>
+			</tr>
+			<tr>
+				<td class="iconfixed" rowspan="3"><i id="pg_fc0i" class="unknown" /></td>
+				<td><i id="miniupdown" class="wi up" /></i><p id="pg_fc0h" /></td>
+				<td class="forecastfixed"></td>
+				<td class="iconfixed" rowspan="3"><i id="pg_fc1i" class="unknown" /></td>
+				<td><i id="miniupdown" class="wi up" /></i><p id="pg_fc1h" /></td>
+				<td class="forecastfixed"></td>
+				<td class="iconfixed" rowspan="3"><i id="pg_fc2i" class="unknown" /></td>
+				<td><i id="miniupdown" class="wi up" /></i><p id="pg_fc2h" /></td>
+			</tr>
+			<tr>
+				<td><i id="miniupdown" class="wi down" /></i><p id="pg_fc0l"></p></td>
+				<td class="forecastfixed"></td>
+				<td><i id="miniupdown" class="wi down" /></i><p id="pg_fc1l"></p></td>
+				<td class="forecastfixed"></td>
+				<td><i id="miniupdown" class="wi down" /></i><p id="pg_fc2l"></p></td>
+			</tr>
+			<tr>
+				<td><i id="minirain" class="wi basicrain" /></i><p id="pg_fc0c"></p><sup><p class="minipercent">%</p></sup></td>
+				<td class="forecastfixed"></td>
+				<td><i id="minirain" class="wi basicrain" /></i><p id="pg_fc1c"></p><sup><p class="minipercent">%</p></sup></td>
+				<td class="forecastfixed"></td>
+				<td><i id="minirain" class="wi basicrain" /></i><p id="pg_fc2c"></p><sup><p class="minipercent">%</p></sup></td>
+			</tr>			
+			</table>
+		</div>
+	</div>
+</div>
+</body>
+</html>

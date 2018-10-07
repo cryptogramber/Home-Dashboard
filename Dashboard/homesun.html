@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="user-scalable=no, width=1020, maximum-scale=1" />
+	<title>Home Sun Shade Control</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="FA/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/homesun.css">
+	<script src="js/jquery.min.js"></script>
+</head>
+<body>
+<script>
+jQuery(document).ready(function() {
+	$("#lrall_u").click(function() {
+		$.ajax({
+			url: 'http://shadeip1/c1u',
+			error: function(){
+			}
+		});
+	});
+	$("#lrall_s").click(function() {
+		$.ajax({
+			url: 'http://shadeip1/c1s',
+			error: function(){
+			}
+		});
+	});
+	$("#lrall_d").click(function() {
+		$.ajax({
+			url: 'http://shadeip1/c1d',
+			error: function(){
+			}
+		});
+	});
+
+	$("#lr1_u").click(function() {
+		$.ajax({
+			error: function(){
+			}
+		});
+	});
+	$("#lr1_s").click(function() {
+		$.ajax({
+			error: function(){
+			}
+		});
+	});
+	$("#lr1_d").click(function() {
+		$.ajax({
+			error: function(){
+			}
+		});
+	});
+
+	$("#lr2_u").click(function() {
+		$.ajax({
+			url: 'http://shadeip1/c3u',
+			error: function(){
+			}
+		});
+	});
+	$("#lr2_s").click(function() {
+		$.ajax({
+			url: 'http://shadeip1/c3s',
+			error: function(){
+			}
+		});
+	});
+	$("#lr2_d").click(function() {
+		$.ajax({
+			url: 'http://shadeip1/c3d',
+			error: function(){
+			}
+		});
+	});
+
+	$("#lr3_u").click(function() {
+		$.ajax({
+			url: 'http://shadeip1/c5u',
+			error: function(){
+			}
+		});
+	});
+	$("#lr3_s").click(function() {
+		$.ajax({
+			url: 'http://shadeip1/c5s',
+			error: function(){
+			}
+		});
+	});
+	$("#lr3_d").click(function() {
+		$.ajax({
+			url: 'http://shadeip1/c5d',
+			error: function(){
+			}
+		});
+	});
+
+	$("#lr45_u").click(function() {
+		$.ajax({
+			url: 'http://shadeip1/c2u',
+			error: function(){
+			}
+		});
+	});
+	$("#lr45_s").click(function() {
+		$.ajax({
+			url: 'http://shadeip1/c2s',
+			error: function(){
+			}
+		});
+	});
+	$("#lr45_d").click(function() {
+		$.ajax({
+			url: 'http://shadeip1/c2d',
+			error: function(){
+			}
+		});
+	});
+
+	$("#brall_u").click(function() {
+		$.ajax({
+			url: 'http://shadeip2/c1u',
+			error: function(){
+			}
+		});
+	});
+	$("#brall_s").click(function() {
+		$.ajax({
+			url: 'http://shadeip2/c1s',
+			error: function(){
+			}
+		});
+	});
+	$("#brall_d").click(function() {
+		$.ajax({
+			url: 'http://shadeip2/c1d',
+			error: function(){
+			}
+		});
+	});
+
+	$("#br1_u").click(function() {
+		$.ajax({
+			url: 'http://shadeip2/c2u',
+			error: function(){
+			}
+		});
+	});
+	$("#br1_s").click(function() {
+		$.ajax({
+			url: 'http://shadeip2/c2s',
+			error: function(){
+			}
+		});
+	});
+	$("#br1_d").click(function() {
+		$.ajax({
+			url: 'http://shadeip2/c2d',
+			error: function(){
+			}
+		});
+	});
+
+	$("#br2_u").click(function() {
+		$.ajax({
+			url: 'http://shadeip2/c3u',
+			error: function(){
+			}
+		});
+	});
+	$("#br2_s").click(function() {
+		$.ajax({
+			url: 'http://shadeip2/c3s',
+			error: function(){
+			}
+		});
+	});
+	$("#br2_d").click(function() {
+		$.ajax({
+			url: 'http://shadeip2/c3d',
+			error: function(){
+			}
+		});
+	});
+
+	$("#br3_u").click(function() {
+		$.ajax({
+			url: 'http://shadeip2/c4u',
+			error: function(){
+			}
+		});
+	});
+	$("#br3_s").click(function() {
+		$.ajax({
+			url: 'http://shadeip2/c4s',
+			error: function(){
+			}
+		});
+	});
+	$("#br3_d").click(function() {
+		$.ajax({
+			url: 'http://shadeip2/c4d',
+			error: function(){
+			}
+		});
+	});
+ });
+</script>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+		<ul class="nav navbar-nav">
+			<li><a class="nava" href="index.html"><i class="navicon fa fa-home"></i></a></li>
+			<li><a class="nava" href="weather/index.html"><i class="navicon fa fa-sun-o"></i></a></li>
+			<li class="active"><a class="nava" href="homesun.html"><i class="navicon fa fa-columns"></i></a></li>
+			<li><a class="nava" href="lights.html"><i class="navicon fa fa-lightbulb-o"></i></a></li>
+			<li><a class="nava" href="http://url:8080/index.html"><i class="navicon fa fa-music"></i></a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="container">
+	<div id="titleframe">
+		<div id="lrtitle"><h1>Living Room</h1></div>
+		<div id="brtitle"><h1>Bedroom</h1></div>
+	</div>
+	<div id="mainframe">
+		<div id="livingroom">
+			<div id="lrall">
+				<div id="all_up">
+					<div class="controlhover" id="lrall_u"><i class="fa fa-arrow-up"></i></div>
+				</div>
+				<div id="all_stopl">
+					<div class="controlhover" id="lrall_s"><i class="fa fa-square-o"></i></div>
+				</div>
+				<div id="all_down">
+					<div class="controlhover" id="lrall_d"><i class="fa fa-arrow-down"></i></div>
+				</div>
+			</div>
+
+			<div id="lr1">
+				<div id="shade_up">
+					<div class="controlhover" id="lr1_u"><i class="fa fa-arrow-up"></i></div>
+				</div>
+				<div id="shade_stop">
+					<div class="controlhover" id="lr1_s"><i class="fa fa-square-o"></i></div>
+				</div>
+				<div id="shade_down">
+					<div class="controlhover" id="lr1_d"><i class="fa fa-arrow-down"></i></div>
+				</div>
+			</div>
+	
+			<div id="lr2">
+				<div id="shade_up">
+					<div class="controlhover" id="lr2_u"><i class="fa fa-arrow-up"></i></div>
+				</div>
+				<div id="shade_stop">
+					<div class="controlhover" id="lr2_s"><i class="fa fa-square-o"></i></div>
+				</div>
+				<div id="shade_down">
+					<div class="controlhover" id="lr2_d"><i class="fa fa-arrow-down"></i></div>
+				</div>
+			</div>
+	
+			<div id="lr3">
+				<div id="shade_up">
+					<div class="controlhover" id="lr3_u"><i class="fa fa-arrow-up"></i></div>
+				</div>
+				<div id="shade_stop">
+					<div class="controlhover" id="lr3_s"><i class="fa fa-square-o"></i></div>
+				</div>
+				<div id="shade_down">
+					<div class="controlhover" id="lr3_d"><i class="fa fa-arrow-down"></i></div>
+				</div>
+			</div>
+	
+			<div id="lr45">
+				<div id="shade_up">
+					<div class="controlhover" id="lr45_u"><i class="fa fa-arrow-up"></i></div>
+				</div>
+				<div id="shade_stop">
+					<div class="controlhover" id="lr45_s"><i class="fa fa-square-o"></i></div>
+				</div>
+				<div id="shade_down">
+					<div class="controlhover" id="lr45_d"><i class="fa fa-arrow-down"></i></div>
+				</div>
+				<div id="lr45line"></div>
+			</div>
+		</div>
+
+		<div id="bedroom">
+			<div id="brall">
+				<div id="all_up">
+					<div class="controlhover" id="brall_u"><i class="fa fa-arrow-up"></i></div>
+				</div>
+				<div id="all_stopb">
+					<div class="controlhover" id="brall_s"><i class="fa fa-square-o"></i></div>
+				</div>
+				<div id="all_down">
+					<div class="controlhover" id="brall_d"><i class="fa fa-arrow-down"></i></div>
+				</div>
+			</div>
+
+			<div id="br1">
+				<div id="shade_up">
+					<div class="controlhover" id="br1_u"><i class="fa fa-arrow-up"></i></div>
+				</div>
+				<div id="shade_stop">
+					<div class="controlhover" id="br1_s"><i class="fa fa-square-o"></i></div>
+				</div>
+				<div id="shade_down">
+					<div class="controlhover" id="br1_d"><i class="fa fa-arrow-down"></i></div>
+				</div>
+			</div>
+	
+			<div id="br2">
+				<div id="shade_up">
+					<div class="controlhover" id="br2_u"><i class="fa fa-arrow-up"></i></div>
+				</div>
+				<div id="shade_stop">
+					<div class="controlhover" id="br2_s"><i class="fa fa-square-o"></i></div>
+				</div>
+				<div id="shade_down">
+					<div class="controlhover" id="br2_d"><i class="fa fa-arrow-down"></i></div>
+				</div>
+			</div>
+	
+			<div id="br3">
+				<div id="shade_up">
+					<div class="controlhover" id="br3_u"><i class="fa fa-arrow-up"></i></div>
+				</div>
+				<div id="shade_stop">
+					<div class="controlhover" id="br3_s"><i class="fa fa-square-o"></i></div>
+				</div>
+				<div id="shade_down">
+					<div class="controlhover" id="br3_d"><i class="fa fa-arrow-down"></i></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

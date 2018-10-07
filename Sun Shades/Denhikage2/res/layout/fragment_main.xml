@@ -1,0 +1,131 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    tools:context=".MainActivity$BedroomFragment" >
+
+	<Space
+	    android:id="@+id/topspace"
+        android:layout_width="wrap_content"
+        android:layout_height="15dp"
+        android:layout_alignParentTop="true" />
+        
+    <ToggleButton
+        android:id="@+id/brall"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:background="@drawable/shade_toggle"
+        android:onClick="brSelectAll"
+        android:textOff="@string/br_all"
+        android:textOn="@string/br_all"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_below="@id/topspace" />
+
+    <LinearLayout
+        android:id="@+id/shadelayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/brall"
+        android:paddingTop="15dp" >
+
+        <ToggleButton
+            android:id="@+id/brs1"
+            android:layout_width="0dp"
+            android:layout_height="160dp"
+            android:layout_weight=".35"
+            android:background="@drawable/shade_toggle"
+            android:onClick="brSelectS1"
+            android:textOff="@string/br_s1"
+            android:textOn="@string/br_s1"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Space
+            android:layout_width="15dp"
+            android:layout_height="match_parent" />
+
+        <ToggleButton
+            android:id="@+id/brs2"
+            android:layout_width="0dp"
+            android:layout_height="160dp"
+            android:layout_weight=".25"
+            android:background="@drawable/shade_toggle"
+            android:onClick="brSelectS2"
+            android:textOff="@string/br_s2"
+            android:textOn="@string/br_s2"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Space
+            android:layout_width="15dp"
+            android:layout_height="match_parent" />
+
+        <ToggleButton
+            android:id="@+id/brs3"
+            android:layout_width="0dp"
+            android:layout_height="160dp"
+            android:layout_weight=".40"
+            android:background="@drawable/shade_toggle"
+            android:onClick="brSelectS3"
+            android:textOff="@string/br_s3"
+            android:textOn="@string/br_s3"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/commandlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:paddingTop="15dp" >
+
+        <Button
+            android:id="@+id/brup"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_weight=".33"
+            android:background="@drawable/up_toggle"
+            android:onClick="brCommandUp"
+            android:text="@string/br_up"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <Space
+            android:layout_width="15dp"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:id="@+id/brdown"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_weight=".34"
+            android:background="@drawable/down_toggle"
+            android:onClick="brCommandDown"
+            android:text="@string/br_down"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <Space
+            android:layout_width="15dp"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:id="@+id/brstop"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_weight=".33"
+            android:background="@drawable/stop_toggle"
+            android:onClick="brCommandStop"
+            android:text="@string/br_stop"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+</RelativeLayout>

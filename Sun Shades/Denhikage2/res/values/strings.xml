@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <string name="app_name">Denhikage</string>
+    <string name="action_settings">Settings</string>
+    <string name="br_up">⇡</string>
+    <string name="br_down">⇣</string>
+    <string name="br_stop">■</string>
+    <string name="br_all">All Shades</string>
+    <string name="br_s1">1</string>
+    <string name="br_s2">2</string>
+	<string name="br_s3">3</string>
+    <string name="lr_up">⇡</string>
+    <string name="lr_down">⇣</string>
+    <string name="lr_stop">■</string>
+    <string name="lr_all">All Shades</string>
+    <string name="lr_s1">1</string>
+    <string name="lr_s2">2</string>
+	<string name="lr_s3">3</string>
+	<string name="lr_s45">4+5</string>
+	<string name="lr">Living Room</string>
+	<string name="br">Bedroom</string>
+	
+</resources>

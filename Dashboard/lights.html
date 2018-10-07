@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="user-scalable=no, width=1020, maximum-scale=1" />
+	<title>Home Light Control</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="FA/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/homelights.css">
+	<link href="src/bootstrap.colorpickersliders.css" rel="stylesheet" type="text/css" media="all">
+	<script src="js/jshue.js"></script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/tinycolor.min.js"></script>
+	<script src="src/bootstrap.colorpickersliders.js"></script>
+</head>
+<body>
+<script>
+var hue = jsHue();
+var user = hue.bridge('hue_bridge_ip').user('username');
+function house_off() {
+	user.setGroupState(0, { on: false });	
+	document.getElementById("lrbright").value=0;
+	document.getElementById("brbright").value=0;
+}
+function house_bright() {
+	user.setGroupState(0, { on: true, bri: 255 });
+	document.getElementById("lrbright").value=255;
+	document.getElementById("brbright").value=255;
+}
+function house_dim() {
+	user.setGroupState(0, { on: true, bri: 100 });
+	document.getElementById("lrbright").value=100;
+	document.getElementById("brbright").value=100;
+}
+function livingroom_off() {
+	user.setGroupState(1, { on: false });	
+	document.getElementById("lrbright").value=0;
+}
+function livingroom_bright() {
+	user.setGroupState(1, { on: true, bri: 255 });
+	document.getElementById("lrbright").value=255;
+}
+function livingroom_dim() {
+	user.setGroupState(1, { on: true, bri: 100 });
+	document.getElementById("lrbright").value=100;
+}
+function bedroom_off() {
+	user.setGroupState(2, { on: false });
+	document.getElementById("brbright").value=0;
+}
+function bedroom_bright() {
+	user.setGroupState(2, { on: true, bri: 255 });
+	document.getElementById("brbright").value=255;
+}
+function bedroom_dim() {
+	user.setGroupState(2, { on: true, bri: 100 });
+	document.getElementById("brbright").value=100;
+}
+function showValueBR(newValue)
+{
+	eval("user.setGroupState(2, { on: true, bri: " + newValue + " });");
+}
+function showValueLR(newValue)
+{
+	eval("user.setGroupState(1, { on: true, bri: " + newValue + " });");
+}
+function lr_blue() {
+	user.setGroupState(1, { on: true, bri: 255, hue: 46920, sat: 255 });
+	document.getElementById("lrbright").value=255;
+}
+function lr_green() {
+	user.setGroupState(1, { on: true, bri: 255, hue: 26500, sat: 255 });
+	document.getElementById("lrbright").value=255;
+}
+function lr_red() {
+	user.setGroupState(1, { on: true, bri: 255, hue: 0, sat: 255 });
+	document.getElementById("lrbright").value=255;
+}
+function lr_purp() {
+	user.setGroupState(1, { on: true, bri: 255, hue: 52100, sat: 255 });
+	document.getElementById("lrbright").value=255;
+}
+function br_blue() {
+	user.setGroupState(2, { on: true, bri: 255, hue: 46920, sat: 255 });
+	document.getElementById("brbright").value=255;
+}
+function br_green() {
+	user.setGroupState(2, { on: true, bri: 255, hue: 26500, sat: 255 });
+	document.getElementById("brbright").value=255;
+}
+function br_red() {
+	user.setGroupState(2, { on: true, bri: 255, hue: 0, sat: 255 });
+	document.getElementById("brbright").value=255;
+}
+function br_purp() {
+	user.setGroupState(2, { on: true, bri: 255, hue: 52100, sat: 255 });
+	document.getElementById("brbright").value=255;
+}
+function br_fuji() {
+	user.setGroupState(2, { on: true, bri: 255, scene: "752f0947c-on-0" });
+	document.getElementById("brbright").value=255;
+}
+function lr_fuji() {
+	user.setGroupState(1, { on: true, bri: 255, scene: "972f4242a-on-0" });
+	document.getElementById("lrbright").value=255;
+}
+function br_laila() {
+	user.setGroupState(2, { on: true, bri: 255, scene: "0652c93a3-on-0" });
+	document.getElementById("brbright").value=255;
+}
+function lr_laila() {
+	user.setGroupState(1, { on: true, bri: 255, scene: "c4b6a5329-on-0" });
+	document.getElementById("lrbright").value=255;
+}
+function br_relax() {
+	user.setLightState(1, { on: true, bri: 255, hue: 40920, sat: 255 });
+	user.setLightState(3, { on: true, bri: 255, hue: 13088, sat: 255 });
+	document.getElementById("brbright").value=255;
+}
+function lr_relax() {
+	user.setGroupState(1, { on: true, bri: 255, scene: "b0a1adbd0-on-0" });
+	user.setLightState(4, { on: true, bri: 255, hue: 40920, sat: 100 });
+	document.getElementById("lrbright").value=255;
+}
+function br_beagle() {
+	user.setGroupState(2, { on: true, bri: 255, scene: "c3788effd-on-0" });
+	document.getElementById("brbright").value=255;
+}
+function lr_beagle() {
+	user.setGroupState(1, { on: true, bri: 255, scene: "5039f056c-on-0" });
+	document.getElementById("lrbright").value=255;
+}
+
+</script>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+		<ul class="nav navbar-nav">
+			<li><a class="nava" href="index.html"><i class="navicon fa fa-home"></i></a></li>
+			<li><a class="nava" href="weather/index.html"><i class="navicon fa fa-sun-o"></i></a></li>
+			<li><a class="nava" href="homesun.html"><i class="navicon fa fa-columns"></i></a></li>
+			<li class="active"><a class="nava" href="lights.html"><i class="navicon fa fa-lightbulb-o"></i></a></li>
+			<li><a class="nava" href="http://url:8080/index.html"><i class="navicon fa fa-music"></i></a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="container">
+	<div id="titleframe">
+		<p>
+		<button type="button" class="btsize btn btn-lg btn-default" onclick="house_off()">House<br />Off</button>
+		<button type="button" class="btsize btn btn-lg btn-default" onclick="livingroom_off()">Living Room<br />Off</button>
+		<button type="button" class="btsizer btn btn-lg btn-default" onclick="bedroom_off()">Bedroom<br />Off</button>
+		</p>
+		<p>
+		<button type="button" class="btsize btn btn-lg btn-default" onclick="house_dim()">House<br />Dim</button>
+		<button type="button" class="btsize btn btn-lg btn-default" onclick="livingroom_dim()">Living Room<br />Dim</button>
+		<button type="button" class="btsizer btn btn-lg btn-default" onclick="bedroom_dim()">Bedroom<br />Dim</button>
+		</p>
+		<p>
+		<button type="button" class="btsize btn btn-lg btn-default" onclick="house_bright()">House<br />Bright</button>
+		<button type="button" class="btsize btn btn-lg btn-default" onclick="livingroom_bright()">Living Room<br />Bright</button>
+		<button type="button" class="btsizer btn btn-lg btn-default" onclick="bedroom_bright()">Bedroom<br />Bright</button>
+		</p>
+		<br />
+		<div class="page-header">
+		<h1>Room Color & Brightness</h1>
+		</div>
+
+		<div id="bedcol">
+			<h3>Bedroom</h3>
+			<input type="range" id="brbright" min="0" max="255" value="128" step="5" onchange="showValueBR(this.value)" />
+			<br /><br />
+			<button type="button" class="btcolor bgfuji btn btn-lg btn-default" onclick="br_fuji()"><br /></button>
+			<button type="button" class="btcolor bglaila btn btn-lg btn-default" onclick="br_laila()"><br /></button>
+			<button type="button" class="btcolor bgrelax btn btn-lg btn-default" onclick="br_relax()"><br /></button>
+			<button type="button" class="btcolorr bgbeagle btn btn-lg btn-default" onclick="br_beagle()"><br /></button>
+			<br /><br />
+			<button type="button" class="btcolor bgblue btn btn-lg btn-default" onclick="br_blue()"><br /></button>
+			<button type="button" class="btcolor bgred btn btn-lg btn-default" onclick="br_red()"><br /></button>
+			<button type="button" class="btcolor bggreen btn btn-lg btn-default" onclick="br_green()"><br /></button>
+			<button type="button" class="btcolorr bgpurp btn btn-lg btn-default" onclick="br_purp()"><br /></button>
+		</div>
+		<div id="lrcol">
+			<h3>Living Room</h3>
+			<input type="range" id="lrbright" min="0" max="255" value="128" step="5" onchange="showValueLR(this.value)" />
+			<br /><br />
+			<button type="button" class="btcolor bgfuji btn btn-lg btn-default" onclick="lr_fuji()"><br /></button>
+			<button type="button" class="btcolor bglaila btn btn-lg btn-default" onclick="lr_laila()"><br /></button>
+			<button type="button" class="btcolor bgrelax btn btn-lg btn-default" onclick="lr_relax()"><br /></button>
+			<button type="button" class="btcolorr bgbeagle btn btn-lg btn-default" onclick="lr_beagle()"><br /></button>
+			<br /><br />
+			<button type="button" class="btcolor bgblue btn btn-lg btn-default" onclick="lr_blue()"><br /></button>
+			<button type="button" class="btcolor bgred btn btn-lg btn-default" onclick="lr_red()"><br /></button>
+			<button type="button" class="btcolor bggreen btn btn-lg btn-default" onclick="lr_green()"><br /></button>
+			<button type="button" class="btcolorr bgpurp btn btn-lg btn-default" onclick="lr_purp()"><br /></button>
+		</div>
+
+		<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+		<br /><br /><br /><br /><br />
+
+	</div>
+</div>
+</body>
+</html>

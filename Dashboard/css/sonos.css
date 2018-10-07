@@ -1,0 +1,38 @@
+html, body {
+	background-color: #fff;
+	min-width: 100%;
+	min-height: 100%;
+	margin: 0px;
+	padding: 0px;
+	outline: none;
+	border: 0px;
+	text-decoration: none;
+	line-height: 1em;
+	color: #404040;
+}
+
+#titleframe {
+	width: 910px;
+	margin: 0px auto;
+	margin-top: 85px;
+	height: 100%;
+}
+
+.navicon {
+	padding-left: 15px;
+	padding-right: 15px;
+	font-size: 30px;
+}
+
+.nava {
+	text-decoration: none;
+}
+
+.sonosicons {
+        font-size: 30px;
+        padding-right: 15px;
+        padding-left: 15px;
+        -webkit-font-smoothing: antialiased;
+
+}
+
